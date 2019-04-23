@@ -18,9 +18,13 @@ For simplicity's sake, I recommend having all words be the same length. For exam
 If the string input is too long or too short, the program will print a `die` statement. 
 If the string perfectly matches the word, the program will end and print 'You Win!'.
 If the string is *not* a perfect match, the program will print a string with underscores `_` in the place of mismatched words.
+
 ## How to perform this assignment
+
 For the initialization, I would strongly recommend using a dictionary to assign the words to the numbers. The program will then need to iterate through both strings letter by letter, printing the letter when they match and printing an underscore when they do not. 
+
 ## Expected Behavior
+
 Here is the expected usage statement. The program must have the guess as a required input: 
 <html>
   
