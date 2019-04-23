@@ -18,83 +18,84 @@ prg = './Hangman.py'
 #-------------------------------------------------
 def test_usage():
     """usage"""
-    for flag in ['h','--help']:
+    for flag in ['-h', '--help']:
         rv, out = getstatusoutput('{} {}'.format(prg, flag))
         assert rv == 0
         assert re.match("usage", out, re.IGNORECASE)
 
 #-------------------------------------------------
 def test_bad_args(): 
-"""die on bad args"""
+    """die on bad args"""
     rv1, out1 = getstatusoutput(prg) 
-    assert assert rv1 > 0
+    assert rv1 > 0
     assert re.match("usage", out1, re.IGNORECASE)
     
     rv2, out2 = getstatusoutput('{} -g ARCOLOGIS'.format(prg))
-    assert rv2 > 0
-    assert re.match("ARCO_____\n")
+    assert rv2 == 0
+    assert re.match("ARCO_____\n", out2, re.IGNORECASE)
     
     rv3, out3  =getstatusoutput('{} -g arcology'.format(prg))
     assert rv3 > 0
-    assert re.match("The guess must be the same lenght as the word: 9", out3, re.IGNORECASE))
+    assert re.match("The guess must be the same length as the word: 9", out3, re.IGNORECASE)
     
-        
 #-------------------------------------------------
-def good_one():
+def test_good_one():
+
     rv, out = getstatusoutput('{} -c 1 -g Arcosanti'.format(prg))
     assert rv == 0
-    assert re.match('ARCOSANTI\n' out)
+    assert re.match('ARCOSANTI\n', out,re.IGNORECASE) 
 
 #-------------------------------------------------
-def good_two():
+def test_good_two():
+
     rv, out = getstatusoutput('{} -c 2 -g Intercept'.format(prg))
     assert rv == 0
-    assert re.match('ARCOSANTI\n' out)
+    assert re.match('INTERCEPT\n', out,re.IGNORECASE)
     
 #-------------------------------------------------
-def good_three():
+def test_good_three():
     rv, out = getstatusoutput('{} -c 3 -g Positions'.format(prg))
     assert rv == 0
-    assert re.match('POSITIONS\n' out)
+    assert re.match('POSITIONS\n', out,re.IGNORECASE)
 
 #-------------------------------------------------
-def good_four():
+def test_good_four():
     rv, out = getstatusoutput('{} -c 4 -g Collected'.format(prg))
     assert rv == 0
-    assert re.match('COLLECTED\n' out)
+    assert re.match('COLLECTED\n', out,re.IGNORECASE)
     
 #-------------------------------------------------
-def good_five():
+def test_good_five():
     rv, out = getstatusoutput('{} -c 5 -g Gemstones'.format(prg))
     assert rv == 0
-    assert re.match('GEMSTONES\n' out)
+    assert re.match('GEMSTONES\n', out,re.IGNORECASE)
     
 #-------------------------------------------------
-def good_six():
+def test_good_six():
     rv, out = getstatusoutput('{} -c 6 -g Cellulose'.format(prg))
     assert rv == 0
-    assert re.match('CELLULOSE\n' out)
+    assert re.match('CELLULOSE\n', out,re.IGNORECASE)
     
 #-------------------------------------------------
-def good_seven():
+def test_good_seven():
     rv, out = getstatusoutput('{} -c 7 -g Mastodons'.format(prg))
     assert rv == 0
-    assert re.match('MASTODONS\n' out)
+    assert re.match('MASTODONS\n', out,re.IGNORECASE)
     
 #-------------------------------------------------
-def good_eight():
+def test_good_eight():
     rv, out = getstatusoutput('{} -c 8 -g Meteorite'.format(prg))
     assert rv == 0
-    assert re.match('METEORITE\n' out)
+    assert re.match('METEORITE\n', out,re.IGNORECASE)
 #-------------------------------------------------
-def good_nine():
+def test_good_nine():
     rv, out = getstatusoutput('{} -c 9 -g Phoenixes'.format(prg))
     assert rv == 0
-    assert re.match('PHOENIXES\n' out)
+    assert re.match('PHOENIXES\n', out,re.IGNORECASE)
 
 #-------------------------------------------------
-def good_ten():
+def test_good_ten():
     rv, out = getstatusoutput('{} -c 10 -g Fireflies'.format(prg))
     assert rv == 0
-    assert re.match('FIREFLIES\n' out)
+    assert re.match('FIREFLIES\n', out,re.IGNORECASE)
 
