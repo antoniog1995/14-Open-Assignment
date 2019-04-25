@@ -46,7 +46,6 @@ If `-h` is input, this should appear:
       -h, --help            show this help message and exit
       -g str, --guess str   Guess string (default: None)
       -c int, --choice int  Word choice (default: 1)
-    dhcp-10-132-136-25:14-Open-Assignment antoniogutierrez-jaramillo$ 
 
 </html>
 ## Expected Outcome
